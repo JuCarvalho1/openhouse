@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Presentes | Julia & Gabriel</title>
+
+<link rel="stylesheet" href="style.css">
+
+
+<!-- Google Fonts -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<nav>
+
+
+<a class="logo" href="index.html">
+Julia & Gabriel
+</a>
+
+
+
+<ul>
+
+<li>
+<a href="index.html">
+Início
+</a>
+</li>
+
+
+<li>
+<a href="presentes.html">
+Presentes
+</a>
+</li>
+
+
+</ul>
+
+
+</nav>
+
+</header>
+
+
+
+
+
+<section class="hero-presentes">
+
+
+<div>
+
+
+<p class="eyebrow">
+NOSSO NOVO LAR
+</p>
+
+
+
+<h1>
+Lista de Presentes
+</h1>
+
+
+
+<p class="descricao">
+
+Para aqueles que desejarem contribuir com essa nova fase, preparamos uma lista com itens que farão parte da nossa rotina e do nosso lar.
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section class="lista-presentes">
+
+
+<div class="section-title">
+
+<span>
+ESCOLHA COM CARINHO
+</span>
+
+
+<h2>
+Presentes
+</h2>
+
+
+</div>
+
+
+
+
+<div id="containerPresentes">
+
+<!-- preenchido pelo JavaScript -->
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section class="pix">
+
+
+<div class="section-title">
+
+<span>
+OUTRA OPÇÃO
+</span>
+
+
+<h2>
+Contribua com nosso lar
+</h2>
+
+
+</div>
+
+
+
+<p class="intro">
+
+Se preferir, você também pode contribuir através do PIX.
+
+</p>
+
+
+
+<div class="pix-box">
+
+
+<strong id="chavePix">
+5511960889666
+</strong>
+
+
+
+<button 
+class="btn btn-primary" 
+onclick="copiarPix()">
+
+Copiar PIX
+
+</button>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<div id="modalPresente" class="modal">
+
+
+<div class="modal-content">
+
+
+
+<button 
+class="fechar" 
+onclick="fecharModal()">
+
+×
+
+</button>
+
+
+
+
+
+<h2>
+Vou presentear 💛
+</h2>
+
+
+
+
+
+<p id="nomePresenteSelecionado"></p>
+
+
+
+
+
+<form id="formPresente">
+
+
+<input
+
+type="text"
+
+id="nomeConvidado"
+
+name="nome"
+
+placeholder="Seu nome"
+
+required
+
+>
+
+
+
+<input
+
+type="hidden"
+
+id="idPresente"
+
+name="idPresente"
+
+>
+
+
+
+
+
+<button 
+
+class="btn btn-primary"
+
+type="submit">
+
+Confirmar
+
+</button>
+
+
+
+</form>
+
+
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<footer>
+
+
+<p>
+Julia & Gabriel
+</p>
+
+
+<small>
+Com carinho, esperamos vocês 🤍
+</small>
+
+
+</footer>
+
+
+
+
+
+<script src="presentes.js"></script>
+
+
+</body>
+
+</html>
