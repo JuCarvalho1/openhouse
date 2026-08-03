@@ -2,12 +2,10 @@
 // CONFIGURAÇÕES
 // ===============================
 
-const API_URL = 
-"https://script.google.com/macros/s/AKfycbxd9yQfKRMVmvhWfGZmEjjIn4WSz2Lrc9TvtgBntvyn5jQGAh6KwQkEt6OFzUwfYU4K/exec";
-
+const API_URL =
+  "https://script.google.com/macros/s/AKfycbxd9yQfKRMVmvhWfGZmEjjIn4WSz2Lrc9TvtgBntvyn5jQGAh6KwQkEt6OFzUwfYU4K/exec";
 
 const chavePix = "5511960889666";
-
 
 // ===============================
 // VARIÁVEIS
@@ -17,101 +15,115 @@ let presentes = [];
 
 let presenteSelecionado = null;
 
+// ===============================
+// FETCH COM TIMEOUT E RETRY
+// ===============================
 
+async function fetchComTimeout(url, timeout = 12000) {
+  const controlador = new AbortController();
+
+  const timer = setTimeout(() => controlador.abort(), timeout);
+
+  try {
+    return await fetch(url, { signal: controlador.signal });
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+async function buscarPresentes(tentativas = 3) {
+  for (let i = 1; i <= tentativas; i++) {
+    try {
+      const resposta = await fetchComTimeout(API_URL);
+
+      if (!resposta.ok) {
+        throw new Error("HTTP " + resposta.status);
+      }
+
+      return await resposta.json();
+    } catch (error) {
+      if (i === tentativas) {
+        throw error;
+      }
+
+      // espera crescente antes de tentar de novo
+      await new Promise((r) => setTimeout(r, 1000 * i));
+    }
+  }
+}
 
 // ===============================
 // CARREGAR PRESENTES DA PLANILHA
 // ===============================
 
-async function carregarPresentes(){
+async function carregarPresentes() {
+  const container = document.getElementById("containerPresentes");
 
+  container.innerHTML = `
 
-    try{
+        <div class="loading-presentes">
 
+            <span class="spinner"></span>
 
-        const resposta = await fetch(API_URL);
+            <p>Carregando presentes...</p>
 
+        </div>
 
-        presentes = await resposta.json();
+    `;
 
+  try {
+    presentes = await buscarPresentes();
+    renderizarPresentes();
+  } catch (error) {
+    console.error("Erro ao carregar presentes:", error);
 
-        renderizarPresentes();
+    container.innerHTML = `
 
+            <div class="loading-presentes">
 
-    }
+                <p>Não foi possível carregar a lista de presentes. 🤎</p>
 
+                <button
+                class="btn btn-primary"
+                onclick="carregarPresentes()">
 
-    catch(error){
+                Tentar novamente
 
+                </button>
 
-        console.error(
-            "Erro ao carregar presentes:",
-            error
-        );
+            </div>
 
-
-        alert(
-            "Não foi possível carregar a lista de presentes."
-        );
-
-
-    }
-
-
+        `;
+  }
 }
-
-
-
 
 // ===============================
 // RENDERIZAR CARDS
 // ===============================
 
-function renderizarPresentes(){
+function renderizarPresentes() {
+  const container = document.getElementById("containerPresentes");
 
+  container.innerHTML = "";
 
-    const container = 
-    document.getElementById(
-        "containerPresentes"
-    );
+  presentes.forEach((presente) => {
+    const card = document.createElement("div");
 
+    card.className = "card-presente";
 
-    container.innerHTML = "";
-
-
-
-    presentes.forEach((presente)=>{
-
-
-        const card =
-        document.createElement("div");
-
-
-        card.className =
-        "card-presente";
-
-
-
-        card.innerHTML = `
+    card.innerHTML = `
 
 
         <div class="imagem-presente">
 
             ${
-                presente.imagem
-
-                ?
-
-                `
+              presente.imagem
+                ? `
                 <img 
                 src="${presente.imagem}"
                 alt="${presente.nome}">
                 `
-
-                :
-
-                "🎁"
-
+                : "🎁"
             }
 
         </div>
@@ -137,11 +149,8 @@ function renderizarPresentes(){
 
 
         ${
-            presente.linkCompra
-
-            ?
-
-            `
+          presente.linkCompra
+            ? `
             <a 
             href="${presente.linkCompra}"
             target="_blank"
@@ -151,21 +160,14 @@ function renderizarPresentes(){
 
             </a>
             `
-
-            :
-
-            ""
-
+            : ""
         }
 
 
 
         ${
-            presente.reservado
-
-            ?
-
-            `
+          presente.reservado
+            ? `
             <button
             class="btn"
             disabled>
@@ -174,12 +176,7 @@ function renderizarPresentes(){
 
             </button>
             `
-
-
-            :
-
-
-            `
+            : `
             <button
             class="btn btn-primary"
             onclick="abrirModal(${presente.id})">
@@ -188,49 +185,24 @@ function renderizarPresentes(){
 
             </button>
             `
-
         }
 
 
 
         `;
 
-
-
-        container.appendChild(card);
-
-
-
-    });
-
-
+    container.appendChild(card);
+  });
 }
-
-
-
-
-
 
 // ===============================
 // ABRIR MODAL
 // ===============================
 
-function abrirModal(id){
+function abrirModal(id) {
+  presenteSelecionado = presentes.find((p) => p.id == id);
 
-
-    presenteSelecionado =
-    presentes.find(
-        p => p.id == id
-    );
-
-
-
-    document.getElementById(
-        "nomePresenteSelecionado"
-    ).innerHTML =
-
-
-    `
+  document.getElementById("nomePresenteSelecionado").innerHTML = `
     Você escolheu:
 
     <strong>
@@ -238,217 +210,78 @@ function abrirModal(id){
     </strong>
     `;
 
+  document.getElementById("idPresente").value = presenteSelecionado.id;
 
-
-    document.getElementById(
-        "idPresente"
-    ).value =
-    presenteSelecionado.id;
-
-
-
-    document.getElementById(
-        "modalPresente"
-    ).style.display =
-    "flex";
-
-
+  document.getElementById("modalPresente").style.display = "flex";
 }
-
-
-
-
 
 // ===============================
 // FECHAR MODAL
 // ===============================
 
-function fecharModal(){
+function fecharModal() {
+  document.getElementById("modalPresente").style.display = "none";
 
-
-    document.getElementById(
-        "modalPresente"
-    ).style.display =
-    "none";
-
-
-
-    document.getElementById(
-        "nomeConvidado"
-    ).value = "";
-
-
-
+  document.getElementById("nomeConvidado").value = "";
 }
-
-
-
-
-
 
 // ===============================
 // RESERVAR PRESENTE
 // ===============================
 
-
 document
-.getElementById("formPresente")
-.addEventListener(
-"submit",
-async function(event){
-
-
-
+  .getElementById("formPresente")
+  .addEventListener("submit", async function (event) {
     event.preventDefault();
 
-
-
-    const nome =
-    document.getElementById(
-        "nomeConvidado"
-    ).value;
-
-
+    const nome = document.getElementById("nomeConvidado").value;
 
     const dados = new FormData();
 
+    dados.append("id", presenteSelecionado.id);
 
+    dados.append("nome", nome);
 
-    dados.append(
-        "id",
-        presenteSelecionado.id
-    );
+    try {
+      const resposta = await fetch(
+        API_URL,
 
+        {
+          method: "POST",
 
+          body: dados,
+        },
+      );
 
-    dados.append(
-        "nome",
-        nome
-    );
+      const retorno = await resposta.json();
 
+      if (retorno.sucesso) {
+        alert("Obrigada! Seu presente foi reservado 💛");
 
+        fecharModal();
 
+        carregarPresentes();
+      } else {
+        alert("Esse presente já foi reservado 🤎");
 
-    try{
+        carregarPresentes();
+      }
+    } catch (error) {
+      console.error("Erro ao reservar:", error);
 
-
-        const resposta =
-        await fetch(
-
-            API_URL,
-
-            {
-
-                method:"POST",
-
-                body:dados
-
-            }
-
-        );
-
-
-
-        const retorno =
-        await resposta.json();
-
-
-
-
-
-        if(retorno.sucesso){
-
-
-
-            alert(
-                "Obrigada! Seu presente foi reservado 💛"
-            );
-
-
-
-            fecharModal();
-
-
-
-            carregarPresentes();
-
-
-
-        }
-
-
-
-        else{
-
-
-            alert(
-                "Esse presente já foi reservado 🤎"
-            );
-
-
-
-            carregarPresentes();
-
-
-        }
-
-
-
+      alert("Erro ao reservar presente.");
     }
-
-
-    catch(error){
-
-
-
-        console.error(
-            "Erro ao reservar:",
-            error
-        );
-
-
-
-        alert(
-            "Erro ao reservar presente."
-        );
-
-
-
-    }
-
-
-
-});
-
-
-
-
-
-
+  });
 
 // ===============================
 // COPIAR PIX
 // ===============================
 
-function copiarPix(){
+function copiarPix() {
+  navigator.clipboard.writeText(chavePix);
 
-
-    navigator.clipboard.writeText(
-        chavePix
-    );
-
-
-
-    alert(
-        "PIX copiado! Obrigada pelo carinho 💛"
-    );
-
-
+  alert("PIX copiado! Obrigada pelo carinho 💛");
 }
-
-
-
-
 
 // ===============================
 // INICIAR

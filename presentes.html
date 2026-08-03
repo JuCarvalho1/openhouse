@@ -3,20 +3,22 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Presentes | Julia & Gabriel</title>
+    <title>Presentes | Julia & Gabriel</title>
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 
 
-<!-- Google Fonts -->
+    <!-- Google Fonts -->
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
 
 
 </head>
@@ -25,73 +27,74 @@
 <body>
 
 
-<header>
+    <header>
 
-<nav>
+        <nav>
 
 
-<a class="logo" href="index.html">
-Julia & Gabriel
-</a>
+            <a class="logo" href="index.html">
+                Julia & Gabriel
+            </a>
 
 
 
-<ul>
+            <ul>
 
-<li>
-<a href="index.html">
-Início
-</a>
-</li>
+                <li>
+                    <a href="index.html">
+                        Início
+                    </a>
+                </li>
 
 
-<li>
-<a href="presentes.html">
-Presentes
-</a>
-</li>
+                <li>
+                    <a href="presentes.html">
+                        Presentes
+                    </a>
+                </li>
 
 
-</ul>
+            </ul>
 
 
-</nav>
+        </nav>
 
-</header>
+    </header>
 
 
 
 
 
-<section class="hero-presentes">
+    <section class="hero-presentes">
 
 
-<div>
+        <div>
 
 
-<p class="eyebrow">
-NOSSO NOVO LAR
-</p>
+            <p class="eyebrow">
+                NOSSO NOVO LAR
+            </p>
 
 
 
-<h1>
-Lista de Presentes
-</h1>
+            <h1>
+                Lista de Presentes
+            </h1>
 
 
 
-<p class="descricao">
+            <p class="descricao">
 
-Para aqueles que desejarem contribuir com essa nova fase, preparamos uma lista de sugestões com itens que farão parte da nossa rotina e do nosso lar.
+                Para aqueles que desejarem contribuir com essa nova fase, preparamos uma lista de sugestões com itens
+                que farão parte da nossa rotina e do nosso lar.
 
-</p>
+            </p>
 
 
-</div>
+        </div>
 
 
-</section>
+    </section>
 
 
 
@@ -99,34 +102,34 @@ Para aqueles que desejarem contribuir com essa nova fase, preparamos uma lista d
 
 
 
-<section class="lista-presentes">
+    <section class="lista-presentes">
 
 
-<div class="section-title">
+        <div class="section-title">
 
-<span>
-ESCOLHA COM CARINHO
-</span>
+            <span>
+                ESCOLHA COM CARINHO
+            </span>
 
 
-<h2>
-Presentes
-</h2>
+            <h2>
+                Presentes
+            </h2>
 
 
-</div>
+        </div>
 
 
 
 
-<div id="containerPresentes">
+        <div id="containerPresentes">
 
-<!-- preenchido pelo JavaScript -->
+            <!-- preenchido pelo JavaScript -->
 
-</div>
+        </div>
 
 
-</section>
+    </section>
 
 
 
@@ -134,179 +137,133 @@ Presentes
 
 
 
-<section class="pix">
+    <section class="pix">
 
 
-<div class="section-title">
+        <div class="section-title">
 
-<span>
-OUTRA OPÇÃO
-</span>
+            <span>
+                OUTRA OPÇÃO
+            </span>
 
 
-<h2>
-Contribua com nosso lar
-</h2>
+            <h2>
+                Contribua com nosso lar
+            </h2>
 
 
-</div>
+        </div>
 
 
 
-<p class="intro">
+        <p class="intro">
 
-Se preferir, você também pode contribuir através do PIX.
+            Se preferir, você também pode contribuir através do PIX.
 
-</p>
+        </p>
 
 
 
-<div class="pix-box">
+        <div class="pix-box">
+            <strong id="chavePix">
+                5511960889666
+            </strong>
 
+            <button class="btn btn-primary" onclick="copiarPix()">
+                Copiar PIX
+            </button>
+        </div>
+    </section>
 
-<strong id="chavePix">
-5511960889666
-</strong>
+    <div id="modalPresente" class="modal">
 
 
+        <div class="modal-content">
 
-<button 
-class="btn btn-primary" 
-onclick="copiarPix()">
 
-Copiar PIX
 
-</button>
+            <button class="fechar" onclick="fecharModal()">
 
+                ×
 
+            </button>
 
-</div>
 
 
 
-</section>
 
+            <h2>
+                Vou presentear 💛
+            </h2>
 
 
 
 
 
+            <p id="nomePresenteSelecionado"></p>
 
-<div id="modalPresente" class="modal">
 
 
-<div class="modal-content">
 
 
+            <form id="formPresente">
 
-<button 
-class="fechar" 
-onclick="fecharModal()">
 
-×
+                <input type="text" id="nomeConvidado" name="nome" placeholder="Seu nome" required>
 
-</button>
 
 
+                <input type="hidden" id="idPresente" name="idPresente">
 
 
 
-<h2>
-Vou presentear 💛
-</h2>
 
 
+                <button class="btn btn-primary" type="submit">
 
+                    Confirmar
 
+                </button>
 
-<p id="nomePresenteSelecionado"></p>
 
 
+            </form>
 
 
 
-<form id="formPresente">
 
 
-<input
+        </div>
 
-type="text"
 
-id="nomeConvidado"
+    </div>
 
-name="nome"
 
-placeholder="Seu nome"
 
-required
 
->
 
 
 
-<input
+    <footer>
 
-type="hidden"
 
-id="idPresente"
+        <p>
+            Julia & Gabriel
+        </p>
 
-name="idPresente"
 
->
+        <small>
+            Com carinho, esperamos vocês 🤍
+        </small>
 
 
+    </footer>
 
 
 
-<button 
 
-class="btn btn-primary"
 
-type="submit">
-
-Confirmar
-
-</button>
-
-
-
-</form>
-
-
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<footer>
-
-
-<p>
-Julia & Gabriel
-</p>
-
-
-<small>
-Com carinho, esperamos vocês 🤍
-</small>
-
-
-</footer>
-
-
-
-
-
-<script src="presentes.js"></script>
+    <script src="presentes.js"></script>
 
 
 </body>

@@ -3,303 +3,254 @@
    Julia & Gabriel
 =================================== */
 
-:root{
+:root {
+    --background: #faf8f5;
+    --paper: #ffffff;
+    --linen: #efe8df;
 
-    --background:#FAF8F5;
-    --paper:#FFFFFF;
-    --linen:#EFE8DF;
+    --offwhite: #f7f5f1;
+    --terracota: #c76e52;
+    --terracota-dark: #b65f44;
+    --madeira: #c39b75;
 
-    --offwhite:#F7F5F1;
-    --terracota:#C76E52;
-    --terracota-dark:#B65F44;
-    --madeira:#C39B75;
+    --text: #3d342f;
+    --text-light: #7a6f67;
 
-    --text:#3D342F;
-    --text-light:#7A6F67;
+    --radius: 22px;
 
-    --radius:22px;
-
-    --shadow:
-    0 15px 45px rgba(0,0,0,.06);
-
+    --shadow: 0 15px 45px rgba(0, 0, 0, 0.06);
 }
 
-*{
-
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html{
-
-    scroll-behavior:smooth;
-
+html {
+    scroll-behavior: smooth;
 }
 
-body{
+body {
+    font-family: "Poppins", sans-serif;
 
-    font-family:'Poppins',sans-serif;
+    background: var(--background);
 
-    background:var(--background);
+    color: var(--text);
 
-    color:var(--text);
-
-    overflow-x:hidden;
-
+    overflow-x: hidden;
 }
 
 /* ===================================
 NAVBAR
 =================================== */
 
-header{
+header {
+    position: fixed;
 
-    position:fixed;
+    width: 100%;
 
-    width:100%;
+    top: 0;
 
-    top:0;
+    left: 0;
 
-    left:0;
+    z-index: 999;
 
-    z-index:999;
+    backdrop-filter: blur(14px);
 
-    backdrop-filter:blur(14px);
+    background: rgba(250, 248, 245, 0.78);
 
-    background:rgba(250,248,245,.78);
-
-    border-bottom:1px solid rgba(0,0,0,.05);
-
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-nav{
+nav {
+    width: min(1200px, 90%);
 
-    width:min(1200px,90%);
+    margin: auto;
 
-    margin:auto;
+    height: 82px;
 
-    height:82px;
+    display: flex;
 
-    display:flex;
+    justify-content: space-between;
 
-    justify-content:space-between;
-
-    align-items:center;
-
+    align-items: center;
 }
 
-.logo{
+.logo {
+    text-decoration: none;
 
-    text-decoration:none;
+    color: var(--terracota);
 
-    color:var(--terracota);
+    font-family: "Cormorant Garamond", serif;
 
-    font-family:"Cormorant Garamond",serif;
+    font-size: 36px;
 
-    font-size:36px;
-
-    font-weight:700;
-
+    font-weight: 700;
 }
 
-nav ul{
+nav ul {
+    display: flex;
 
-    display:flex;
+    gap: 40px;
 
-    gap:40px;
-
-    list-style:none;
-
+    list-style: none;
 }
 
-nav a{
+nav a {
+    text-decoration: none;
 
-    text-decoration:none;
+    color: var(--text);
 
-    color:var(--text);
-
-    transition:.3s;
-
+    transition: 0.3s;
 }
 
-nav li a:hover{
-
-    color:var(--terracota);
-
+nav li a:hover {
+    color: var(--terracota);
 }
 
 /* ===================================
 HERO
 =================================== */
 
-.hero{
+.hero {
+    min-height: 100vh;
 
-    min-height:100vh;
+    display: flex;
 
-    display:flex;
+    align-items: center;
 
-    align-items:center;
+    justify-content: center;
 
-    justify-content:center;
-
-    padding:120px 20px;
-
+    padding: 120px 20px;
 }
 
-.hero-content{
+.hero-content {
+    width: min(900px, 100%);
 
-    width:min(900px,100%);
-
-    text-align:center;
-
+    text-align: center;
 }
 
-.eyebrow{
+.eyebrow {
+    letter-spacing: 6px;
 
-    letter-spacing:6px;
+    color: var(--terracota);
 
-    color:var(--terracota);
+    font-size: 13px;
 
-    font-size:13px;
+    font-weight: 600;
 
-    font-weight:600;
+    text-transform: uppercase;
 
-    text-transform:uppercase;
-
-    margin-bottom:18px;
-
+    margin-bottom: 18px;
 }
 
-.hero h1{
+.hero h1 {
+    font-family: "Cormorant Garamond", serif;
 
-    font-family:"Cormorant Garamond",serif;
+    font-size: 88px;
 
-    font-size:88px;
+    font-weight: 700;
 
-    font-weight:700;
-
-    line-height:1;
-
+    line-height: 1;
 }
 
-.nomes{
+.nomes {
+    margin-top: 20px;
 
-    margin-top:20px;
+    font-size: 22px;
 
-    font-size:22px;
-
-    color:var(--terracota);
-
+    color: var(--terracota);
 }
 
-.descricao{
+.descricao {
+    max-width: 650px;
 
-    max-width:650px;
+    margin: 45px auto;
 
-    margin:45px auto;
+    line-height: 2;
 
-    line-height:2;
+    color: var(--text-light);
 
-    color:var(--text-light);
-
-    font-size:18px;
-
+    font-size: 18px;
 }
 
-.evento{
+.evento {
+    display: flex;
 
-    display:flex;
+    justify-content: center;
 
-    justify-content:center;
+    gap: 60px;
 
-    gap:60px;
-
-    margin-bottom:50px;
-
+    margin-bottom: 50px;
 }
 
-.item{
+.item {
+    display: flex;
 
-    display:flex;
+    align-items: center;
 
-    align-items:center;
+    gap: 10px;
 
-    gap:10px;
-
-    color:var(--text);
-
+    color: var(--text);
 }
 
-.item svg{
+.item svg {
+    width: 20px;
 
-    width:20px;
+    height: 20px;
 
-    height:20px;
-
-    color:var(--terracota);
-
+    color: var(--terracota);
 }
 
 /* ===================================
 BOTÕES
 =================================== */
 
-.acoes{
+.acoes {
+    display: flex;
 
-    display:flex;
+    justify-content: center;
 
-    justify-content:center;
+    gap: 20px;
 
-    gap:20px;
-
-    flex-wrap:wrap;
-
+    flex-wrap: wrap;
 }
 
-.btn{
+.btn {
+    display: flex;
 
-    display:flex;
+    align-items: center;
 
-    align-items:center;
+    gap: 10px;
 
-    gap:10px;
+    padding: 18px 34px;
 
-    padding:18px 34px;
+    border-radius: 999px;
 
-    border-radius:999px;
+    text-decoration: none;
 
-    text-decoration:none;
+    transition: 0.3s;
 
-    transition:.3s;
+    font-weight: 500;
 
-    font-weight:500;
+    border: 2px solid var(--terracota);
 
-    border:2px solid var(--terracota);
-
-    color:var(--terracota);
-
+    color: var(--terracota);
 }
 
-.btn:hover{
-
-    transform:translateY(-4px);
-
+.btn:hover {
+    transform: translateY(-4px);
 }
 
-.btn-primary{
+.btn-primary {
+    background: var(--terracota);
 
-    background:var(--terracota);
-
-    color:white;
-
+    color: white;
 }
 
-.btn-primary:hover{
-
-    background:var(--terracota-dark);
-
+.btn-primary:hover {
+    background: var(--terracota-dark);
 }
 
 /* ===================================
@@ -318,7 +269,7 @@ CONTADOR
 }
 
 .tempo span {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "Cormorant Garamond", serif;
     font-size: 48px;
     color: #cf7558;
     font-weight: 600;
@@ -326,7 +277,7 @@ CONTADOR
 
 .tempo small {
     display: block;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -336,812 +287,598 @@ CONTADOR
 SEÇÕES
 =================================== */
 
-section{
-
-    padding:120px 20px;
-
+section {
+    padding: 120px 20px;
 }
 
-.section-title{
+.section-title {
+    text-align: center;
 
-    text-align:center;
-
-    margin-bottom:50px;
-
+    margin-bottom: 50px;
 }
 
-.section-title span{
+.section-title span {
+    color: var(--terracota);
 
-    color:var(--terracota);
+    text-transform: uppercase;
 
-    text-transform:uppercase;
+    letter-spacing: 4px;
 
-    letter-spacing:4px;
-
-    font-size:13px;
-
+    font-size: 13px;
 }
 
-.section-title h2{
+.section-title h2 {
+    margin-top: 12px;
 
-    margin-top:12px;
+    font-family: "Cormorant Garamond", serif;
 
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:60px;
-
+    font-size: 60px;
 }
 
-.sobre{
-
-    background:var(--paper);
-
+.sobre {
+    background: var(--paper);
 }
 
-.sobre p{
+.sobre p {
+    width: min(750px, 100%);
 
-    width:min(750px,100%);
+    margin: auto;
 
-    margin:auto;
+    text-align: center;
 
-    text-align:center;
+    line-height: 2;
 
-    line-height:2;
+    color: var(--text-light);
 
-    color:var(--text-light);
-
-    font-size:18px;
-
+    font-size: 18px;
 }
 
 /* ===================================
 PALETA
 =================================== */
 
-.intro{
+.intro {
+    max-width: 700px;
 
-    max-width:700px;
+    margin: 0 auto 60px;
 
-    margin:0 auto 60px;
+    text-align: center;
 
-    text-align:center;
+    color: var(--text-light);
 
-    color:var(--text-light);
-
-    line-height:2;
-
+    line-height: 2;
 }
 
-.palette{
+.palette {
+    display: grid;
 
-    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap: 30px;
 
-    gap:30px;
+    width: min(1000px, 100%);
 
-    width:min(1000px,100%);
-
-    margin:auto;
-
+    margin: auto;
 }
 
-.palette-item{
+.palette-item {
+    background: white;
 
-    background:white;
+    padding: 35px;
 
-    padding:35px;
+    border-radius: var(--radius);
 
-    border-radius:var(--radius);
+    box-shadow: var(--shadow);
 
-    box-shadow:var(--shadow);
+    text-align: center;
 
-    text-align:center;
-
-    transition:.35s;
-
+    transition: 0.35s;
 }
 
-.palette-item:hover{
-
-    transform:translateY(-10px);
-
+.palette-item:hover {
+    transform: translateY(-10px);
 }
 
-.circle{
+.circle {
+    width: 90px;
 
-    width:90px;
+    height: 90px;
 
-    height:90px;
+    border-radius: 50%;
 
-    border-radius:50%;
-
-    margin:0 auto 20px;
-
+    margin: 0 auto 20px;
 }
 
-.offwhite{
+.offwhite {
+    background: #f7f5f1;
 
-    background:#F7F5F1;
-
-    border:1px solid #E6DFD8;
-
+    border: 1px solid #e6dfd8;
 }
 
-.madeira{
-
-    background:var(--madeira);
-
+.madeira {
+    background: var(--madeira);
 }
 
-.terracota{
-
-    background:var(--terracota);
-
+.terracota {
+    background: var(--terracota);
 }
 
-.algodao{
+.algodao {
+    background: var(--linen);
 
-    background:var(--linen);
-
-    border:1px solid #DDD4CB;
-
+    border: 1px solid #ddd4cb;
 }
 
-.palette-item h3{
+.palette-item h3 {
+    font-family: "Cormorant Garamond", serif;
 
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:32px;
-
+    font-size: 32px;
 }
 
 /* ===================================
 CTA
 =================================== */
 
-.cta{
-
-    text-align:center;
-
+.cta {
+    text-align: center;
 }
 
-.icone svg{
+.icone svg {
+    width: 45px;
 
-    width:45px;
+    height: 45px;
 
-    height:45px;
+    color: var(--terracota);
 
-    color:var(--terracota);
-
-    margin-bottom:20px;
-
+    margin-bottom: 20px;
 }
 
-.cta h2{
+.cta h2 {
+    font-family: "Cormorant Garamond", serif;
 
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:54px;
-
+    font-size: 54px;
 }
 
-.cta p{
+.cta p {
+    max-width: 650px;
 
-    max-width:650px;
+    margin: 30px auto 40px;
 
-    margin:30px auto 40px;
+    line-height: 2;
 
-    line-height:2;
-
-    color:var(--text-light);
-
+    color: var(--text-light);
 }
 
 /* ===================================
 FOOTER
 =================================== */
 
-footer{
+footer {
+    padding: 80px 20px;
 
-    padding:80px 20px;
+    text-align: center;
 
-    text-align:center;
-
-    background:var(--linen);
-
+    background: var(--linen);
 }
 
-footer p{
+footer p {
+    font-family: "Cormorant Garamond", serif;
 
-    font-family:"Cormorant Garamond",serif;
+    font-size: 34px;
 
-    font-size:34px;
-
-    margin-bottom:10px;
-
+    margin-bottom: 10px;
 }
 
-footer small{
-
-    color:var(--text-light);
-
+footer small {
+    color: var(--text-light);
 }
 
 /* ===================================
 RESPONSIVO
 =================================== */
 
-@media(max-width:900px){
+@media (max-width: 900px) {
+    nav ul {
+        display: none;
+    }
 
-nav ul{
+    .hero h1 {
+        font-size: 58px;
+    }
 
-display:none;
+    .section-title h2 {
+        font-size: 44px;
+    }
 
+    .evento {
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+    .acoes {
+        flex-direction: column;
+    }
+
+    .btn {
+        justify-content: center;
+    }
+
+    .palette {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
-.hero h1{
+@media (max-width: 600px) {
+    .palette {
+        grid-template-columns: 1fr;
+    }
 
-font-size:58px;
+    .hero {
+        padding-top: 150px;
+    }
 
-}
+    .hero h1 {
+        font-size: 48px;
+    }
 
-.section-title h2{
-
-font-size:44px;
-
-}
-
-.evento{
-
-flex-direction:column;
-
-gap:18px;
-
-}
-
-.acoes{
-
-flex-direction:column;
-
-}
-
-.btn{
-
-justify-content:center;
-
-}
-
-.palette{
-
-grid-template-columns:1fr 1fr;
-
-}
-
-}
-
-@media(max-width:600px){
-
-.palette{
-
-grid-template-columns:1fr;
-
-}
-
-.hero{
-
-padding-top:150px;
-
-}
-
-.hero h1{
-
-font-size:48px;
-
-}
-
-.descricao{
-
-font-size:16px;
-
-}
+    .descricao {
+        font-size: 16px;
+    }
 }
 
 /* ===================================
    PÁGINA DE PRESENTES
 =================================== */
 
+.hero-presentes {
+    min-height: 75vh;
 
-.hero-presentes{
+    display: flex;
 
-    min-height:75vh;
+    justify-content: center;
 
-    display:flex;
+    align-items: center;
 
-    justify-content:center;
+    text-align: center;
 
-    align-items:center;
-
-    text-align:center;
-
-    padding:150px 20px 80px;
-
+    padding: 150px 20px 80px;
 }
 
+.hero-presentes h1 {
+    font-family: "Cormorant Garamond", serif;
 
+    font-size: 78px;
 
-.hero-presentes h1{
+    font-weight: 700;
 
-    font-family:"Cormorant Garamond",serif;
+    line-height: 1;
 
-    font-size:78px;
-
-    font-weight:700;
-
-    line-height:1;
-
-    color:var(--terracota);
-
+    color: var(--terracota);
 }
 
-
-
-
-.lista-presentes{
-
-    background:var(--paper);
-
+.lista-presentes {
+    background: var(--paper);
 }
 
+#containerPresentes {
+    width: min(1200px, 90%);
 
+    margin: auto;
 
-#containerPresentes{
+    display: grid;
 
-    width:min(1200px,90%);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(260px,1fr));
-
-    gap:35px;
-
+    gap: 35px;
 }
-
-
-
-
 
 /* CARD PRESENTE */
 
-.card-presente{
+.card-presente {
+    background: var(--background);
 
-    background:var(--background);
+    border-radius: var(--radius);
 
-    border-radius:var(--radius);
+    padding: 30px;
 
-    padding:30px;
+    text-align: center;
 
-    text-align:center;
+    box-shadow: var(--shadow);
 
-    box-shadow:var(--shadow);
-
-    transition:.35s;
-
+    transition: 0.35s;
 }
 
-
-
-.card-presente:hover{
-
-    transform:translateY(-8px);
-
+.card-presente:hover {
+    transform: translateY(-8px);
 }
 
+.imagem-presente {
+    height: 190px;
 
+    display: flex;
 
+    align-items: center;
 
-.imagem-presente{
+    justify-content: center;
 
-    height:190px;
+    font-size: 65px;
 
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:65px;
-
-    margin-bottom:25px;
-
+    margin-bottom: 25px;
 }
 
+.imagem-presente img {
+    width: 100%;
 
-
-.imagem-presente img{
-
-    width:100%;
-
-    height:100%;
+    height: 100%;
 
     object-fit: contain;
 
-    border-radius:18px;
-
+    border-radius: 18px;
 }
 
+.card-presente h3 {
+    font-family: "Cormorant Garamond", serif;
 
+    font-size: 34px;
 
+    font-weight: 600;
 
-
-.card-presente h3{
-
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:34px;
-
-    font-weight:600;
-
-    margin-bottom:10px;
-
+    margin-bottom: 10px;
 }
 
+.card-presente p {
+    color: var(--text-light);
 
-
-
-.card-presente p{
-
-    color:var(--text-light);
-
-    margin-bottom:15px;
-
+    margin-bottom: 15px;
 }
 
+.card-presente strong {
+    display: block;
 
+    color: var(--terracota);
 
-.card-presente strong{
+    font-size: 18px;
 
-    display:block;
-
-    color:var(--terracota);
-
-    font-size:18px;
-
-    margin-bottom:25px;
-
+    margin-bottom: 25px;
 }
 
+.card-presente button {
+    display: flex;
 
+    justify-content: center;
 
-.card-presente button{
+    align-items: center;
 
-    display:flex;
+    margin: 25px auto 0;
 
-    justify-content:center;
+    background: var(--terracota);
 
-    align-items:center;
+    color: white;
 
-    margin:25px auto 0;
+    border: none;
 
-    background:var(--terracota);
+    padding: 16px 40px;
 
-    color:white;
+    border-radius: 999px;
 
-    border:none;
+    font-family: "Poppins", sans-serif;
 
-    padding:16px 40px;
+    font-size: 16px;
 
-    border-radius:999px;
+    cursor: pointer;
 
-    font-family:"Poppins",sans-serif;
-
-    font-size:16px;
-
-    cursor:pointer;
-
-    transition:.3s;
-
+    transition: 0.3s;
 }
 
-.card-presente button:hover{
+.card-presente button:hover {
+    background: var(--terracota-dark);
 
-    background:var(--terracota-dark);
-
-    transform:translateY(-3px);
-
+    transform: translateY(-3px);
 }
-
-
-
-
 
 /* ===================================
 PIX
 =================================== */
 
+.pix {
+    text-align: center;
 
-.pix{
-
-    text-align:center;
-
-    background:var(--background);
-
+    background: var(--background);
 }
 
+.pix-box {
+    display: flex;
 
+    justify-content: center;
 
-.pix-box{
+    align-items: center;
 
-    display:flex;
+    gap: 20px;
 
-    justify-content:center;
-
-    align-items:center;
-
-    gap:20px;
-
-    flex-wrap:wrap;
-
+    flex-wrap: wrap;
 }
 
+.pix-box strong {
+    background: white;
 
+    padding: 18px 35px;
 
-.pix-box strong{
+    border-radius: 999px;
 
-    background:white;
+    box-shadow: var(--shadow);
 
-    padding:18px 35px;
-
-    border-radius:999px;
-
-    box-shadow:var(--shadow);
-
-    color:var(--terracota);
-
+    color: var(--terracota);
 }
-
-
-
-
 
 /* ===================================
 MODAL PRESENTE
 =================================== */
 
+.modal {
+    display: none;
 
-.modal{
+    position: fixed;
 
-    display:none;
+    top: 0;
+    left: 0;
 
-    position:fixed;
+    width: 100%;
+    height: 100%;
 
-    top:0;
-    left:0;
+    background: rgba(0, 0, 0, 0.45);
 
-    width:100%;
-    height:100%;
+    justify-content: center;
+    align-items: center;
 
-    background:rgba(0,0,0,.45);
-
-    justify-content:center;
-    align-items:center;
-
-    z-index:9999;
-
+    z-index: 9999;
 }
 
+.modal-content {
+    position: relative;
 
+    width: min(520px, 90%);
 
-.modal-content{
+    background: white;
 
-    position:relative;
+    padding: 45px 50px;
 
-    width:min(520px,90%);
+    border-radius: 30px;
 
-    background:white;
+    text-align: center;
 
-    padding:45px 50px;
-
-    border-radius:30px;
-
-    text-align:center;
-
-    box-shadow:0 20px 60px rgba(0,0,0,.15);
-
-
-
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
 }
 
+.fechar {
+    position: absolute;
 
+    top: 15px;
+    right: 20px;
 
-.fechar{
+    border: none;
 
-    position:absolute;
+    background: none;
 
-    top:15px;
-    right:20px;
+    font-size: 30px;
 
-    border:none;
-
-    background:none;
-
-    font-size:30px;
-
-    cursor:pointer;
-
+    cursor: pointer;
 }
-
-
-
 
 /* ===================================
 RESPONSIVO PRESENTES
 =================================== */
 
-
-@media(max-width:900px){
-
-
-.hero-presentes h1{
-
-    font-size:58px;
-
+@media (max-width: 900px) {
+    .hero-presentes h1 {
+        font-size: 58px;
+    }
 }
 
+@media (max-width: 600px) {
+    .hero-presentes h1 {
+        font-size: 45px;
+    }
 
+    #containerPresentes {
+        width: 90%;
+    }
+
+    .card-presente h3 {
+        font-size: 28px;
+    }
 }
 
+#containerPresentes {
+    display: grid !important;
 
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
 
-@media(max-width:600px){
-
-
-.hero-presentes h1{
-
-    font-size:45px;
-
+    gap: 30px;
 }
 
+.card-presente {
+    background: white !important;
 
-#containerPresentes{
+    padding: 30px !important;
 
-    width:90%;
+    border-radius: 22px !important;
 
-}
-
-
-.card-presente h3{
-
-    font-size:28px;
-
-}
-
-
-}
-
-#containerPresentes{
-
-    display:grid !important;
-
-    grid-template-columns:repeat(
-        auto-fit,
-        minmax(260px,1fr)
-    ) !important;
-
-    gap:30px;
-
-}
-
-
-
-.card-presente{
-
-    background:white !important;
-
-    padding:30px !important;
-
-    border-radius:22px !important;
-
-    box-shadow:
-    0 15px 45px rgba(0,0,0,.06) !important;
-
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.06) !important;
 }
 /* ===================================
    AJUSTE MODAL PRESENTE
 =================================== */
 
-.modal-content h2{
-
-    font-family:"Cormorant Garamond",serif;
-    font-size:38px;
-    color:var(--text);
-    margin-bottom:15px;
-
+.modal-content h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 38px;
+    color: var(--text);
+    margin-bottom: 15px;
 }
 
-
-.modal-content p{
-
-    font-size:18px;
-    color:var(--text);
-    margin-bottom:15px;
-
+.modal-content p {
+    font-size: 18px;
+    color: var(--text);
+    margin-bottom: 15px;
 }
 
+.modal-content input {
+    width: 100%;
 
-.modal-content input{
+    max-width: 260px;
 
-    width:100%;
+    padding: 14px 20px;
 
-    max-width:260px;
+    border: 1px solid #ddd;
 
-    padding:14px 20px;
+    border-radius: 999px;
 
-    border:1px solid #ddd;
+    font-family: "Poppins", sans-serif;
 
-    border-radius:999px;
+    font-size: 15px;
 
-    font-family:"Poppins",sans-serif;
+    text-align: center;
 
-    font-size:15px;
+    outline: none;
 
-    text-align:center;
-
-    outline:none;
-
-    margin-bottom:20px;
-
+    margin-bottom: 20px;
 }
 
-
-.modal-content input:focus{
-
-    border-color:var(--terracota);
-
+.modal-content input:focus {
+    border-color: var(--terracota);
 }
 
+.modal-content button {
+    background: var(--terracota);
 
-.modal-content button{
+    color: white;
 
-    background:var(--terracota);
+    border: none;
 
-    color:white;
+    padding: 16px 40px;
 
-    border:none;
+    border-radius: 999px;
 
-    padding:16px 40px;
+    font-family: "Poppins", sans-serif;
 
-    border-radius:999px;
+    font-size: 16px;
 
-    font-family:"Poppins",sans-serif;
+    cursor: pointer;
 
-    font-size:16px;
-
-    cursor:pointer;
-
-    transition:.3s;
-
+    transition: 0.3s;
 }
 
+.modal-content button:hover {
+    background: var(--terracota-dark);
 
-.modal-content button:hover{
-
-    background:var(--terracota-dark);
-
-    transform:translateY(-3px);
-
+    transform: translateY(-3px);
 }
-
 
 /* nome do presente escolhido */
 
-.modal-content strong{
-
-    color:var(--text);
-
+.modal-content strong {
+    color: var(--text);
 }
 
 /* ===================================
@@ -1149,157 +886,171 @@ RESPONSIVO PRESENTES
    OPEN HOUSE
 =================================== */
 
-
 /* Base de todos os botões */
 
 .btn,
 button.btn,
 .card-presente button,
 .card-presente a.btn,
-.modal-content button:not(.fechar){
+.modal-content button:not(.fechar) {
+    display: inline-flex;
 
-    display:inline-flex;
+    width: auto;
 
-    width:auto;
+    min-width: 0;
 
-    min-width:0;
+    height: auto;
 
-    height:auto;
+    align-items: center;
 
-    align-items:center;
+    justify-content: center;
 
-    justify-content:center;
+    text-align: center;
 
-    text-align:center;
+    gap: 10px;
 
-    gap:10px;
+    padding: 14px 28px;
 
-    padding:14px 28px;
+    border-radius: 999px;
 
-    border-radius:999px;
+    font-family: "Poppins", sans-serif;
 
-    font-family:"Poppins",sans-serif;
+    font-size: 16px;
 
-    font-size:16px;
+    font-weight: 500;
 
-    font-weight:500;
+    line-height: 1;
 
-    line-height:1;
+    white-space: nowrap;
 
-    white-space:nowrap;
-
-    box-sizing:border-box;
-
+    box-sizing: border-box;
 }
-
-
 
 /* Remove largura forçada dos cards */
 
 .card-presente button,
-.card-presente a.btn{
+.card-presente a.btn {
+    margin-left: auto;
 
-    margin-left:auto;
-
-    margin-right:auto;
-
+    margin-right: auto;
 }
-
-
 
 /* Botão principal */
 
 .btn-primary,
 .card-presente button.btn-primary,
-.modal-content button:not(.fechar){
+.modal-content button:not(.fechar) {
+    background: var(--terracota);
 
-    background:var(--terracota);
+    color: white;
 
-    color:white;
-
-    border:2px solid var(--terracota);
-
+    border: 2px solid var(--terracota);
 }
-
-
 
 /* Botão secundário */
 
-.btn:not(.btn-primary){
+.btn:not(.btn-primary) {
+    background: transparent;
 
-    background:transparent;
+    color: var(--terracota);
 
-    color:var(--terracota);
-
-    border:2px solid var(--terracota);
-
+    border: 2px solid var(--terracota);
 }
-
-
 
 /* Hover */
 
 .btn:hover,
 .card-presente button:hover,
-.modal-content button:not(.fechar):hover{
-
-    transform:translateY(-3px);
-
+.modal-content button:not(.fechar):hover {
+    transform: translateY(-3px);
 }
-
-
 
 /* Ícones dentro dos botões */
 
 .btn svg,
-.btn i{
+.btn i {
+    width: 18px;
 
-    width:18px;
+    height: 18px;
 
-    height:18px;
-
-    flex-shrink:0;
-
+    flex-shrink: 0;
 }
-
-
 
 /* Botão desabilitado */
 
-button:disabled{
+button:disabled {
+    cursor: not-allowed;
 
-    cursor:not-allowed;
+    opacity: 0.7;
 
-    opacity:.7;
-
-    transform:none !important;
-
+    transform: none !important;
 }
-
-
 
 /* ===================================
    BOTÃO FECHAR DO MODAL
    NÃO ALTERAR
 =================================== */
 
+.fechar {
+    width: auto !important;
 
-.fechar{
+    min-width: 0 !important;
 
-    width:auto !important;
-
-    min-width:0 !important;
-
-    height:auto !important;
+    height: auto !important;
 
     padding: 2px !important;
 
-    border:none !important;
+    border: none !important;
 
     background: var(--terracota) !important;
 
-    display:block !important;
+    display: block !important;
 
-    transform:none !important;
+    transform: none !important;
+}
 
+/* LOADING PRESENTES */
+
+.loading-presentes {
+    grid-column: 1 / -1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    padding: 70px 20px;
+
+    color: var(--text-light);
+}
+
+.loading-presentes p {
+    font-size: 0.95rem;
+
+    letter-spacing: 0.5px;
+}
+
+.spinner {
+    width: 44px;
+
+    height: 44px;
+
+    border-radius: 50%;
+
+    border: 4px solid var(--linen);
+
+    border-top-color: var(--terracota);
+
+    animation: girar 0.9s linear infinite;
+}
+
+@keyframes girar {
+    to {
+        transform: rotate(360deg);
+    }
 }
